@@ -1,3 +1,3 @@
 # my-hello
 
-This is new fo me.
+This is new for me.
