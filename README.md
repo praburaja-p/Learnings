@@ -7,3 +7,4 @@ Angular 2 vs. Angular 1
 * Changed dependency injection.
 * More Language choices, i.e you can use Typescript, Dart, or JavaScript for your implementation.
 * Difficult to set up. In Angular, you just have to add the reference of the library but in Angular 2 you have to set different node modules to make it work.
+http://tobiasahlin.com/blog/how-to-animate-box-shadow/
