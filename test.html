@@ -118,6 +118,176 @@ header .container{ z-index: 3;}
   transition-delay: 0s, 0s, 0.3s; /* this removes the transition delay so the menu will be visible while the other styles transition */
 }
 
+/* ========== Mobile Menu ============
+====================================== */
+@media screen and (max-width: 767px) {
+	#mobileNav {
+		height: inherit;
+		line-height: inherit;
+		position: absolute;
+		right: 0;
+		top: 10px;
+	}
+	#mobileNav > ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		white-space: nowrap;
+	}
+	#mobileNav > ul > li {
+		display: inline-block;
+		padding: 0;
+	}
+	#mobileNav > ul > li > a {
+		border: 0;
+		color: #fff;
+		display: block;
+		font-size: 0.8em;
+		letter-spacing: 0.225em;
+		padding: 0 1.5em;
+		text-transform: uppercase;
+	}
+	#mobileNav > ul > li > a.menuToggle {
+		outline: 0;
+		position: relative;
+	}
+	#mobileNav > ul > li > a.menuToggle:after {
+		background-image: url("../images/bars.svg");
+		background-position: right center;
+		background-repeat: no-repeat;
+		content: '';
+		display: inline-block;
+		height: 3.75em;
+		vertical-align: middle;
+		width: 2em;
+	}						
+	#mobileNav > ul > li > a.menuToggle {
+		padding: 0 1.5em;
+		text-decoration: none !important;
+	}
+	#mobileNav > ul > li > a {
+		padding: 0 0 0 1.5em;
+	}
+	#mobileNav > ul > li:first-child {
+		margin-left: 0;
+	}
+	#page-wrapper {
+		-moz-transition: opacity 0.5s ease;
+		-webkit-transition: opacity 0.5s ease;
+		-ms-transition: opacity 0.5s ease;
+		transition: opacity 0.5s ease;
+		opacity: 1;
+	}
+	#page-wrapper:before {
+		background: transparent;
+		content: '';
+		display: block;
+		display: none;
+		height: 100%;
+		left: 0;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 10001;
+	}
+	#menu {
+		-moz-transform: translateX(20em);
+		-webkit-transform: translateX(20em);
+		-ms-transform: translateX(20em);
+		transform: translateX(20em);
+		-moz-transition: -moz-transform 0.5s ease;
+		-webkit-transition: -webkit-transform 0.5s ease;
+		-ms-transition: -ms-transform 0.5s ease;
+		transition: transform 0.5s ease;
+		-webkit-overflow-scrolling: touch;
+		background: #21b2a6;
+		color: #ffffff;
+		height: 100%;
+		max-width: 80%;
+		overflow-y: auto;
+		padding: 3em 2em;
+		position: fixed;
+		right: 0;
+		top: 0;
+		width: 20em;
+		z-index: 10002;
+	}
+
+	#menu ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	#menu ul > li {
+		border-top: solid 1px rgba(0, 0, 0, 0.125);
+		margin: 0.5em 0 0 0;
+		padding: 0.5em 0 0 0;
+	}
+
+	#menu > ul > li:first-child {
+		border-top: 0 !important;
+		margin-top: 0 !important;
+		padding-top: 0 !important;
+	}
+
+	#menu ul > li > a {
+		border: 0;
+		color: inherit;
+		display: block;
+		font-size: 0.8em;
+		letter-spacing: 0.225em;
+		outline: 0;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+	#menu .dropdown-menu {
+		float: none;
+		position: static;
+		background: none;
+		border:0;
+		border-radius:0;
+		margin:0;
+	}
+	#menu .dropdown-menu a{
+		padding-left: 15px;
+		letter-spacing: 0.1em;
+	}
+	#menu .close {
+		background-image: url("../images/close.svg");
+		background-position: 4.85em 1em;
+		background-repeat: no-repeat;
+		border: 0;
+		cursor: pointer;
+		display: block;
+		height: 3em;
+		position: absolute;
+		right: 0;
+		top: 0;
+		vertical-align: middle;
+		width: 7em;
+	}
+	body.is-menu-visible #page-wrapper {
+		opacity: 0.35;
+	}
+	body.is-menu-visible #page-wrapper:before {
+		display: block;
+	}
+
+	body.is-menu-visible #menu {
+	-moz-transform: translateX(0);
+	-webkit-transform: translateX(0);
+	-ms-transform: translateX(0);
+	transform: translateX(0);
+	}
+	#menu ul > li > a {
+		line-height: 3em;
+	}
+	#menu {
+		padding: 3em 1.5em;
+	}
+}
+
+
 
 /* ========== Banner Section ========== 
 ========================================*/
@@ -158,68 +328,241 @@ header .container{ z-index: 3;}
 	background: #7ab55c;
 	color: #fff;
 	cursor: pointer;
+	transition: all 0.3s ease;
 }
+.search-form button:hover{
+	background: #6aa74c;
+}
+
+/* ========== Content ============
+================================== */
+.block {
+    float: left;
+    padding: 110px 0;
+    position: relative;
+    width: 100%;
+}
+.title{
+    display:table;
+    width:570px;
+    margin-bottom:50px;
+    text-align:center;
+    margin:0 auto 50px;
+}
+.title h2{
+    font-size:30px;
+    color:#333333;
+    text-transform:uppercase;
+    line-height:25px;
+    padding-top:20px;
+    position:relative;
+    display:table;
+    margin:0 auto;
+    padding-bottom:10px;
+    font-weight:700;
+}
+.title h2:before,
+.title h2:after{
+    position:absolute;
+    left:-80px;
+    top:0;
+    width:100px;
+    height:1px;
+    background:#dadada;
+    content:"";
+}
+.title h2:after{
+    bottom:-10px;
+    top:auto;
+    right:-80px;
+    left:auto;
+}
+.title span{
+    float:left;
+    width:100%;
+    font-size:16px;
+	color: #7ab55c;
+}
+.featured-courses .card{
+	background: #f8f8f8;
+	border:0;
+	border-radius: 0;
+}
+.img-card{
+	width: 100%;
+	overflow: hidden;
+}
+.featured-courses .card img{
+	width: 100%;
+	background: #fff;
+	transition: all 0.4s ease 0s;
+}
+.img-card:hover img{
+	transform: scale(1.2);
+}
+
+.featured-courses h3{
+    float:left;
+    width:100%;
+    font-size:16px;
+    text-transform:uppercase;
+    font-weight:700;
+    line-height:24px;
+    padding:0 30px;
+    margin-bottom:15px;
+}
+.featured-courses p{
+    float:left;
+    width:100%;
+    padding:0 20px;
+}
+.course-bar{
+    float:left;
+    width:100%;
+    background:#FFF;
+    padding-right:30px;
+}
+.course-bar span{
+    float:left;
+    color:#FFF;
+    font-size:1.2rem;
+    font-family:poppins;
+    padding:5px 30px;
+    position:relative;
+    font-weight:800;
+	background: #7ab55c;
+}
+.course-bar span:before{
+    content:"";
+    border-top:22px solid #333;
+    border-right:15px solid transparent!important;
+    position:absolute;
+    right:-15px;
+    top:0;
+	border-color: #7ab55c;
+}
+.course-bar span:after{
+    content:"";
+    border-bottom:22px solid #333;
+    border-right:15px solid transparent!important;
+    position:absolute;
+    right:-15px;
+    bottom:0;
+	border-color: #7ab55c;
+}
+.course-bar a{
+	float: right;
+	padding: 8px 10px;
+	text-decoration: none!important;
+}
+
 </style>
-<header>
-		<div class="container">
-			<nav class="top-nav hidden-sm-down">
+<div id="page-wrapper">
+		<header>
+			<div class="container">
+				<nav class="top-nav hidden-sm-down">
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li class="sub-menu-parent">
+							<a href="#">Courses</a>
+							<ul class="sub-menu">
+								<li><a href="#">Sub Item 1</a></li>
+								<li><a href="#">Sub Item 2</a></li>
+								<li><a href="#">Sub Item 3</a></li>
+								<li><a href="#">Sub Item 4</a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul>
+						<li><a href="#">Trainers</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</nav>
+				<div class="logo-wrapper">
+					<a href="#"><h1>Cod<span>{-}</span>rewards</h1></a>
+				</div>				
+			</div>
+			<nav id="mobileNav" class="hidden-md-up">
 				<ul>
-					<li><a href="#">Home</a></li>
-					<li class="sub-menu-parent">
-						<a href="#">Courses</a>
-						<ul class="sub-menu">
-							<li><a href="#">Sub Item 1</a></li>
-							<li><a href="#">Sub Item 2</a></li>
-							<li><a href="#">Sub Item 3</a></li>
-							<li><a href="#">Sub Item 4</a></li>
-						</ul>
+					<li class="special">
+						<a class="menuToggle" href="#"><span>Menu</span></a>						
 					</li>
 				</ul>
-				<ul>
-					<li><a href="#">Trainers</a></li>
-					<li><a href="#">Contact</a></li>
+			</nav>
+		</header>
+		<section class="banner_section">
+			<div class="row align-items-center">
+				<div class="col">
+					<form class="search-form">
+						<input type="text" placeholder="Search courses...">
+						<button>Search</button>
+					</form>
+					<h2>Get certified. Get Ahead.</h2>
+					
+				</div>
+			</div>
+		</section>
+		<main style="height: 1400px">
+			<section class="block">
+				<div class="container">
+					<div class="title">
+						<h2>OUR FEATURED COURSES</h2>
+						<span>Choose Your Courses</span>
+					</div>
+					<div class="featured-courses">
+						<div class="row">
+							<div class="col-4">
+								<div class="card">
+									<div class="img-card"><img src="images/front-end-development.png" alt="Card image cap"></div>
+									<div class="card-block">
+										<h3 class="card-title">Front End Development</h3>
+										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+										<p class="text-center">3 weeks | 25 sessions</p>
+										<div class="course-bar">
+											<span>$ 6,500/-</span>
+											<a href="#">Explore &#8594;</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="card">
+									<div class="img-card"><img src="images/fullstack.png" alt="Card image cap"></div>
+									<div class="card-block">
+										<h3 class="card-title">Full Stack Development</h3>
+										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+										<p class="text-center">3 weeks | 25 sessions</p>
+										<div class="course-bar">
+											<span>$ 12,500/-</span>
+											<a href="#">Explore &#8594;</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<div id="menu" class="hidden-md-up">
+		<ul>
+			<li><a href="home.html">Home</a></li>
+			<li class="dropdown">
+				<a href="ssssssssssset" class="dropdown-toggle" data-toggle="dropdown" id="mobileSubMenu1" aria-haspopup="true" aria-expanded="false">Courses</a>
+				<ul class="dropdown-menu" aria-labelledby="mobileSubMenu1">
+					<li><a href="#">Front end development</a></li>
+					<li><a href="#">PHP Development</a></li>
 				</ul>
-			</nav>
-			<div class="logo-wrapper">
-				<a href="#"><h1>Cod<span>{-}</span>rewards</h1></a>
-			</div>
-			<nav class="mobile-navbar hidden-md-up">
-				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navMobile" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navMobile">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active">
-							<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Link</a>
-						</li>
-						
-					</ul>					
-				  </div>
-			</nav>
-		</div>
-	</header>
-	<section class="banner_section">
-		<div class="row align-items-center">
-			<div class="col">
-				<form class="search-form">
-					<input type="text" placeholder="Search courses...">
-					<button>Search</button>
-				</form>
-				<h2>Get certified. Get Ahead.</h2>
-				
-			</div>
-		</div>
-	</section>
-	<main style="height: 1400px">
-	
-	</main>
+			</li>
+			<li><a href="#">Trainers</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+		<a class="close" href="#menu"></a>
+	</div>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/tether.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
 	<script>
 		$(document).ready(function(){
 			$(window).on('scroll', function () {
@@ -229,6 +572,11 @@ header .container{ z-index: 3;}
 					$('header').removeClass('fixed');
 				}
 			});
+			$('.menuToggle, .close').click(function(e){
+				e.preventDefault();
+				$('body').toggleClass('is-menu-visible');
+			});
+			
 		});
 		
 	</script>
