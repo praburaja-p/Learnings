@@ -1,34 +1,30 @@
-.btn-box .btn{ width: 100%; cursor: pointer;}
-.btn-box .col{ max-width: 180px; padding:5px;}
-.btn-box{ margin:0;}
-.search-box { padding:5px; position: relative;}
-.search-box input{ padding-right:35px;}
-.search-box i{ position: absolute; right:14px; font-size: 16px; top: 11px;  }
+/* Flexbox */
+.fxcontent{ display:flex; flex-direction: row; background: rgba(220,220,220,.5); padding: 10px; height: 90vh;}
+.fxcontent article{ flex: 1; background: #fff; margin: 5px; padding:2px; order: 2; display: flex; flex-direction: column;}
+.fxcontent article .cdrow{ flex: 1; display: flex; flex-flow: row wrap;}
+.fxcontent article .cdrow > span{ flex: 1; display: flex; margin: 2px; background: pink; text-align: center; min-width: 50px; align-items: center; justify-content: center;  }
+.fxcontent article .cdrow > span span{  }
+.fxcontent nav{ background: pink; margin: 5px; order: 1; width: 200px;}
+.fxcontent aside{ background: green; margin: 5px; order:3; width: 200px;}
+.fxcontent .end{ position: absolute; }
+<div class="fxcontent">
+<article>
+	<div class="cdrow">
+		<span>1</span>
+		<span>2</span>
 
-.item-list .col { max-width: 140px; min-width: 120px; padding: 5px;}
-.item-list .col > div{ width: 100%; height: 150px; background: #fff; border-radius: 8px; text-align: center; padding: 5px; }
+	</div>
+	<div class="cdrow">
+		<span>11</span>
+		<span>12</span>
 
-<div class="row btn-box">
-<div class="col"><button class="btn btn-info">menu 1</button></div>
-<div class="col"><button class="btn btn-info">menu 2</button></div>
-<div class="col"><button class="btn btn-info">menu 3</button></div>
-<div class="col"><button class="btn btn-info">menu 4</button></div>
-<div class="col"><button class="btn btn-info">menu 5</button></div>
-<div class="col"><button class="btn btn-info">menu 6</button></div>
-<div class="col"><button class="btn btn-info">menu 7</button></div>
-<div class="col"><button class="btn btn-info">menu 8</button></div>
+	</div>
+	<div class="cdrow">
+		<span>21</span>
+		<span>22</span>
+
+	</div>
+</article>
+<nav>Left menu</nav>
+<aside>Right menu</aside>
 </div>
-<div class="form-group search-box">
-<i class="material-icons">search</i>
-<input type="search" class="form-control form-control-sm">
-</div>
-
-<div class="row no-gutters item-list">
-						<div class="col"><div>some content</div></div>
-						<div class="col"><div>some content</div></div>
-						<div class="col"><div>some content</div></div>
-						<div class="col"><div>some content</div></div>
-						<div class="col"><div>some content</div></div>
-						<div class="col"><div>some content</div></div>
-						<div class="col"><div>some content</div></div>
-					</div>
