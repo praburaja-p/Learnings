@@ -1,30 +1,46 @@
+*{ padding:0; margin:0; box-sizing:border-box;}
+.unlist{ list-style: none;}
 /* Flexbox */
-.fxcontent{ display:flex; flex-direction: row; background: rgba(220,220,220,.5); padding: 10px; height: 90vh;}
-.fxcontent article{ flex: 1; background: #fff; margin: 5px; padding:2px; order: 2; display: flex; flex-direction: column;}
-.fxcontent article .cdrow{ flex: 1; display: flex; flex-flow: row wrap;}
-.fxcontent article .cdrow > span{ flex: 1; display: flex; margin: 2px; background: pink; text-align: center; min-width: 50px; align-items: center; justify-content: center;  }
-.fxcontent article .cdrow > span span{  }
-.fxcontent nav{ background: pink; margin: 5px; order: 1; width: 200px;}
-.fxcontent aside{ background: green; margin: 5px; order:3; width: 200px;}
-.fxcontent .end{ position: absolute; }
-<div class="fxcontent">
-<article>
-	<div class="cdrow">
+.tableScreen{ display:flex; flex-direction: row; background: rgba(220,220,220,.5); height: 100vh;}
+.tableScreen .ts-col-left{ flex: 1; margin: 2px; display: flex; flex-direction: column; width: calc(50% - 4px);}
+.tableScreen .ts-col-left .ts-item-table{ flex: 1; display: flex; flex-flow: row wrap; background: #fff;}
+.tableScreen .ts-col-left .ts-calc{ flex: 1; display: flex; flex-flow: row wrap; background: #d7f0bb;}			
+.tableScreen .ts-col-left .cdrow > span{ flex: 1; display: flex; margin: 2px; background: pink; text-align: center; min-width: 50px; align-items: center; justify-content: center;  }
+
+.tableScreen .ts-col-right{ flex: 1; margin: 2px; display: flex; flex-direction: column; width: calc(50% - 4px);}
+.ts-menuitem-top{ flex: 1; display: flex; background: #fff; flex-direction: column;}
+.ts-menuitem-top ul{ flex:1; display: flex; margin:0;}
+.ts-menuitem-top li{ margin: 1px; background:#7d8278;flex:1;}
+.ts-menuhead{ height: 30px;}
+.ts-menuitem-bottom{ flex: 1; display: flex; flex-flow: row wrap; background: #d7f0bb; min-height: 58%;}	
+<main class="tableScreen">
+<section class="ts-col-left">
+	<div class="ts-item-table">
 		<span>1</span>
 		<span>2</span>
+	</div>
+	<div class="ts-calc">
+		<span>1</span>
+		<span>2</span>
+	</div>
+</section>
+<section class="ts-col-right">
+	<div class="ts-menuitem-top">
+		<ul class="unlist">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+		</ul>
 
 	</div>
-	<div class="cdrow">
-		<span>11</span>
-		<span>12</span>
-
+	<div class="ts-menuhead">Menu title</div>
+	<div class="ts-menuitem-bottom">
+		<span>1</span>
+		<span>2</span>
 	</div>
-	<div class="cdrow">
-		<span>21</span>
-		<span>22</span>
+</section>	
 
-	</div>
-</article>
-<nav>Left menu</nav>
-<aside>Right menu</aside>
-</div>
+</main>
