@@ -7,99 +7,62 @@ Angular 2 vs. Angular 1
 * Changed dependency injection.
 * More Language choices, i.e you can use Typescript, Dart, or JavaScript for your implementation.
 * Difficult to set up. In Angular, you just have to add the reference of the library but in Angular 2 you have to set different node modules to make it work.
-http://tobiasahlin.com/blog/how-to-animate-box-shadow/
-<p>
-		<button onclick="jsKeyboard.write(49)">1</button>
-		<button onclick="jsKeyboard.write(50)">2</button>
-		<button onclick="jsKeyboard.write(51)">3</button>
-		<button onclick="jsKeyboard.del()">Del</button>
-		<button onclick="jsKeyboard.appendChar('.')">.</button>
-		<button onclick="jsKeyboard.appendChar('-')">-</button>
-	</p>
-<script>
-	
-	//https://www.sitepoint.com/demos/onscreenkeyboard/		
-	var jsKeyboard = {
-		currentElement: null,
-		init: function(){
-			$('input').not('[type="reset"]').not('[type="submit"]').on('focus, click', function(e){
-            jsKeyboard.currentElement = $(this);
-            jsKeyboard.currentElementCursorPosition = $(this).getCursorPosition();
-            console.log('keyboard is now focused on '+jsKeyboard.currentElement.attr('name')+' at pos('+jsKeyboard.currentElementCursorPosition+')');
-         });
-		},
-		updateCursor: function(){
-			jsKeyboard.currentElement.setCursorPosition(jsKeyboard.currentElementCursorPosition);
-		},
-		write: function(m){
-			if(jsKeyboard.currentElement){
-				var a = jsKeyboard.currentElement.val(),
-					b = String.fromCharCode(m),
-					pos = jsKeyboard.currentElementCursorPosition,
-					output = [a.slice(0, pos), b, a.slice(pos)].join('');
-				jsKeyboard.currentElement.val(output);
-				jsKeyboard.currentElementCursorPosition++; //+1 cursor
-				jsKeyboard.updateCursor();
-			}
-		},
-		appendChar: function(m){
-			if(jsKeyboard.currentElement){
-				var a = jsKeyboard.currentElement.val(),
-					pos = jsKeyboard.currentElementCursorPosition,
-					output = [a.slice(0, pos), m, a.slice(pos)].join('');
-				jsKeyboard.currentElement.val(output);
-				jsKeyboard.currentElementCursorPosition++; //+1 cursor
-				jsKeyboard.updateCursor();
-			}
-		},
-		del: function() {
-			if(jsKeyboard.currentElement){
-				var a = jsKeyboard.currentElement.val(),
-					pos = jsKeyboard.currentElementCursorPosition,
-					output = [a.slice(0, pos-1), a.slice(pos)].join('');
-				jsKeyboard.currentElement.val(output);
-				jsKeyboard.currentElementCursorPosition--; //-1 cursor
-				jsKeyboard.updateCursor();
-			}
-		},
-	}
-	// GET CURSOR POSITION
-	jQuery.fn.getCursorPosition = function(){
-		if(this.lengh == 0) return -1;
-		return $(this).getSelectionStart();
-	}
-	jQuery.fn.getSelectionStart = function(){
-		if(this.lengh == 0) return -1;
-		input = this[0];
-		var pos = input.value.length;
-
-		if (input.createTextRange) {
-			var r = document.selection.createRange().duplicate();
-			r.moveEnd('character', input.value.length);
-			if (r.text == '')
-				pos = input.value.length;
-				pos = input.value.lastIndexOf(r.text);
-		} else if(typeof(input.selectionStart)!="undefined")
-		pos = input.selectionStart;
-		return pos;
-	}
-
-	//SET CURSOR POSITION
-	jQuery.fn.setCursorPosition = function(pos) {
-		this.each(function(index, elem) {
-			if (elem.setSelectionRange) {
-				elem.setSelectionRange(pos, pos);
-			} else if (elem.createTextRange) {
-				var range = elem.createTextRange();
-				range.collapse(true);
-				range.moveEnd('character', pos);
-				range.moveStart('character', pos);
-				range.select();
-			}
-		});
-		return this;
-	};
-	$(function(){
-		jsKeyboard.init();
-	});
-</script>
+<style>
+		body{ margin:0;}
+		.grid-payemnt{  height: 100vh; min-width:768px; min-height: 620px; display: flex;}
+		.grid-payLeft{ flex:1; max-width:40%; background: #f7f7f7; padding: 4px 2px; display: flex; flex-direction: column; }
+		.grid-payRight{ flex:1; background: lightgreen;  padding: 15px; display: flex; flex-direction: column; }
+		
+		.grid-payTable{ max-height:45%; min-height: 45%; background: #fff; overflow-y:auto; }
+		.grid-grid-payFinal{ max-height:55%; min-height: 55%; overflow-y:auto; }
+		.payBtnPanelTop{ min-height:50px; background: #ddd; display: flex;}
+		.payBtnPanelTop .btn{flex:1;}
+		.payRightCalcPanel{ min-height: 50%; margin:5% 0 10%; padding: 10px; display: flex; justify-content: center; }
+		.payBtnPanelBottom{ display: flex; flex-wrap: wrap; margin-bottom:20px;}
+		.payBtnPanelBottom .btn{ height: 50px; width:25%;}
+		.payCalcContent{ width:50%; margin-right: 20px; background: #ccc; }
+		.payCalcCurrency{ width:10%; background: #bbb; }
+		.payBtnPanelExta{display: flex; justify-content: center;}
+		.payBtnPanelExta .btn{ height: 50px;}
+	</style>
+   
+	<div class="grid-payemnt">
+		<section class="grid-payLeft">
+			<div class="grid-payTable">
+				
+			</div>
+			<div class="grid-payFinal">
+				
+			</div>
+		</section>
+		<section class="grid-payRight">
+			<section class="payBtnPanelTop">
+				<button type="button" class="btn">1</button>
+				<button type="button" class="btn">2</button>
+				<button type="button" class="btn">3</button>
+				<button type="button" class="btn">4</button>
+			</section>
+			<section class="payRightCalcPanel">
+				<div class="payCalcContent"></div>
+				<div class="payCalcCurrency"></div>
+			</section>
+			<section class="payBtnPanelBottom">
+				<button type="button" class="btn">1</button>
+				<button type="button" class="btn">2</button>
+				<button type="button" class="btn">3</button>
+				<button type="button" class="btn">4</button>
+				<button type="button" class="btn">5</button>
+				<button type="button" class="btn">6</button>
+				<button type="button" class="btn">7</button>
+				<button type="button" class="btn">8</button>
+				<button type="button" class="btn">5</button>
+				<button type="button" class="btn">6</button>
+				<button type="button" class="btn">7</button>
+				<button type="button" class="btn">8</button>
+			</section>
+			<section class="payBtnPanelExta">
+				<button type="button" class="btn">Ok</button>
+				<button type="button" class="btn">Cancel</button>
+			</div>
+		</section>
+	</div>
